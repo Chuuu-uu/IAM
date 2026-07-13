@@ -5,25 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>우다다 요정 봄이</title>
     
-    <!-- 구글 폰트: 둥글고 귀여운 'Jua' (타이틀용)와 감성적이고 코지한 'Gowun Dodum' (본문용) -->
+    <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
 
+    <!-- FontAwesome (다크모드 아이콘용) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* CSS Variables - Color Palette */
         :root {
-            --bg-ivory: #FCFBF7; /* 메인 컬러: 따뜻한 아이보리 */
-            --text-dark: #5C4D43; /* 텍스트 컬러: 부드러운 브라운/그레이 */
-            --pastel-pink: #FFEAEA; /* 파스텔 핑크 */
-            --pastel-coral: #FFE4D6; /* 파스텔 코랄 */
-            --pastel-yellow: #FFF7D1; /* 파스텔 레몬 옐로우 */
-            --pastel-mint: #E4F9F5; /* 파스텔 민트 */
-            --pastel-blue: #E8F1F5; /* 파스텔 블루 */
-            --pastel-purple: #F3E8FF; /* 파스텔 퍼플 */
+            /* 라이트 모드 (기본) */
+            --bg-main: #FCFBF7; 
+            --text-main: #5C4D43; 
+            --title-color: #d18b74;
+            --card-bg: #ffffff;
+            --badge-text: #b38812;
+            --outro-gradient: linear-gradient(180deg, #FCFBF7 0%, #FFEAEA 100%);
+            
+            /* 파스텔 포인트 */
+            --pastel-pink: #FFEAEA; 
+            --pastel-coral: #FFE4D6; 
+            --pastel-yellow: #FFF7D1; 
+            --pastel-mint: #E4F9F5; 
+            --pastel-blue: #E8F1F5; 
+            --pastel-purple: #F3E8FF;
+            
+            /* 카드 그림자 */
+            --shadow-light: 0 10px 20px rgba(0,0,0,0.02);
+            --shadow-hover: 0 15px 30px rgba(0,0,0,0.06);
+            --profile-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            
+            /* 발자국 패턴 배경 (가벼운 느낌) */
+            --paw-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.7 19.3c-2.3 1.9-5.8 1.1-7.8-1.7-2-2.8-1.8-6.6.5-8.5 2.3-1.9 5.8-1.1 7.8 1.7 2.1 2.8 1.8 6.6-.5 8.5zm10.7-3.6c-1.7 2.5-5 3.3-7.5 1.7-2.5-1.7-3.1-5.1-1.4-7.6 1.7-2.5 5-3.3 7.5-1.7 2.4 1.7 3.1 5.1 1.4 7.6zm8.1 7.4c-.6 2.9-3.4 4.8-6.3 4.2-2.9-.6-4.7-3.6-4.1-6.5.6-2.9 3.4-4.8 6.3-4.2 2.8.6 4.7 3.5 4.1 6.5zm-26.6-4.4c.7 2.9-1.2 5.9-4 6.5-2.9.6-5.7-1.3-6.4-4.2-.7-2.9 1.2-5.9 4-6.5 2.9-.5 5.7 1.4 6.4 4.2zm23.6 13.9c-4 1.2-7 4.9-7.3 9.3-.4 5 3.4 9.4 8.5 9.7 5.1.3 9.4-3.5 9.8-8.5.3-5-3.4-9.4-8.5-9.7-.8 0-1.7-.1-2.5-.8zm-19.1.5c-5 0-9.2 3.9-9.5 8.9-.3 5 3.5 9.4 8.5 9.7 5.1.3 9.4-3.5 9.8-8.5.3-5-3.5-9.4-8.5-9.7-.1-.1-.2-.2-.3-.4z' fill='%23d18b74' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        /* Reset & Base Styles */
+        [data-theme="dark"] {
+            /* 다크 모드 */
+            --bg-main: #2A2420; 
+            --text-main: #EAE0D5; 
+            --title-color: #E2B49A;
+            --card-bg: #38302A;
+            --badge-text: #5C4D43;
+            --outro-gradient: linear-gradient(180deg, #2A2420 0%, #4A3A35 100%);
+            
+            /* 파스텔 포인트를 다크모드에 맞게 약간 톤다운 */
+            --pastel-pink: #5A3E40; 
+            --pastel-coral: #63473D; 
+            --pastel-yellow: #635C3A; 
+            --pastel-mint: #3E5A54; 
+            --pastel-blue: #3E4B5A; 
+            --pastel-purple: #4E405E;
+            
+            /* 다크모드 그림자 */
+            --shadow-light: 0 10px 20px rgba(0,0,0,0.2);
+            --shadow-hover: 0 15px 30px rgba(0,0,0,0.4);
+            --profile-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            
+            /* 발자국 패턴 배경 (어두운 느낌) */
+            --paw-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.7 19.3c-2.3 1.9-5.8 1.1-7.8-1.7-2-2.8-1.8-6.6.5-8.5 2.3-1.9 5.8-1.1 7.8 1.7 2.1 2.8 1.8 6.6-.5 8.5zm10.7-3.6c-1.7 2.5-5 3.3-7.5 1.7-2.5-1.7-3.1-5.1-1.4-7.6 1.7-2.5 5-3.3 7.5-1.7 2.4 1.7 3.1 5.1 1.4 7.6zm8.1 7.4c-.6 2.9-3.4 4.8-6.3 4.2-2.9-.6-4.7-3.6-4.1-6.5.6-2.9 3.4-4.8 6.3-4.2 2.8.6 4.7 3.5 4.1 6.5zm-26.6-4.4c.7 2.9-1.2 5.9-4 6.5-2.9.6-5.7-1.3-6.4-4.2-.7-2.9 1.2-5.9 4-6.5 2.9-.5 5.7 1.4 6.4 4.2zm23.6 13.9c-4 1.2-7 4.9-7.3 9.3-.4 5 3.4 9.4 8.5 9.7 5.1.3 9.4-3.5 9.8-8.5.3-5-3.4-9.4-8.5-9.7-.8 0-1.7-.1-2.5-.8zm-19.1.5c-5 0-9.2 3.9-9.5 8.9-.3 5 3.5 9.4 8.5 9.7 5.1.3 9.4-3.5 9.8-8.5.3-5-3.5-9.4-8.5-9.7-.1-.1-.2-.2-.3-.4z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -32,10 +74,26 @@
 
         body {
             font-family: 'Gowun Dodum', sans-serif;
-            background-color: var(--bg-ivory);
-            color: var(--text-dark);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            position: relative;
+        }
+        
+        /* 패럴랙스 배경 컨테이너 */
+        .parallax-bg {
+            position: fixed;
+            top: -50%;
+            left: 0;
+            width: 100%;
+            height: 200%; /* 스크롤 여유 공간 */
+            background-image: var(--paw-pattern);
+            background-repeat: repeat;
+            z-index: -1;
+            /* JS로 스크롤에 따라 부드럽게(지연되어) 움직일 예정 */
+            transition: transform 0.1s linear; 
         }
 
         h1, h2, h3, h4 {
@@ -43,14 +101,58 @@
             font-weight: normal;
         }
 
-        /* Layout & Structure */
         section {
             padding: 100px 20px;
             max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Animations */
+        /* 스크롤 진행 바 */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: transparent;
+            z-index: 1000;
+        }
+        
+        #progress-bar {
+            height: 100%;
+            background: #d18b74;
+            width: 0%;
+            border-radius: 0 2px 2px 0;
+            transition: width 0.1s ease;
+        }
+
+        /* 다크모드 토글 버튼 */
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: var(--title-color);
+            border: none;
+            box-shadow: var(--shadow-light);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-switch:hover {
+            transform: scale(1.1);
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -72,7 +174,6 @@
             100% { transform: translateY(0px); }
         }
 
-        /* 1. Hero Section (Intro) */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -80,26 +181,26 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             line-height: 1.3;
-            color: #d18b74;
+            color: var(--title-color);
         }
 
         .hero h1 span {
             display: block;
             font-size: 1.8rem;
-            color: var(--text-dark);
+            color: var(--text-main);
             margin-bottom: 10px;
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: #7a6a60;
+            color: inherit;
+            opacity: 0.8;
             max-width: 600px;
             margin: 0 auto 40px auto;
         }
@@ -109,9 +210,10 @@
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 8px solid white;
+            box-shadow: var(--shadow-light);
+            border: 8px solid var(--card-bg);
             margin: 0 auto;
+            background-color: #fff;
         }
 
         .hero-image-wrapper img {
@@ -124,7 +226,7 @@
             position: absolute;
             bottom: 40px;
             font-size: 2rem;
-            color: var(--text-dark);
+            color: var(--text-main);
             opacity: 0.5;
             animation: bounce 2s infinite;
         }
@@ -135,20 +237,20 @@
             60% { transform: translateY(-10px); }
         }
 
-        /* 2. Profile Section */
         .profile {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 40px;
             padding: 60px 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: var(--profile-shadow);
             margin-top: -50px;
             text-align: center;
+            transition: background-color 0.5s ease;
         }
 
         .section-title {
             font-size: 2.2rem;
             margin-bottom: 30px;
-            color: #d18b74;
+            color: var(--title-color);
             text-align: center;
         }
 
@@ -173,10 +275,9 @@
             border-radius: 20px;
             font-family: 'Jua', sans-serif;
             font-size: 1.1rem;
-            color: #b38812;
+            color: var(--badge-text);
         }
 
-        /* 3. Strengths (Charm Points) Section */
         .charms {
             text-align: center;
         }
@@ -186,29 +287,56 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 40px;
+            perspective: 1000px; /* 3D 공간 생성 */
         }
 
-        .card {
-            background-color: white;
-            padding: 35px 25px;
-            border-radius: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* 카드 컨테이너 */
+        .flip-card {
+            background-color: transparent;
+            height: 250px; /* 카드 높이 고정 */
+            perspective: 1000px;
+        }
+
+        /* 실제 뒤집히는 이너 요소 */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
             text-align: left;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 30px;
+            box-shadow: var(--shadow-light);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            box-shadow: var(--shadow-hover);
         }
 
-        /* 각 카드별 파스텔 포인트 컬러 */
-        .card:nth-child(1) { border-top: 8px solid var(--pastel-pink); }
-        .card:nth-child(2) { border-top: 8px solid var(--pastel-yellow); }
-        .card:nth-child(3) { border-top: 8px solid var(--pastel-coral); }
-        .card:nth-child(4) { border-top: 8px solid var(--pastel-mint); }
-        .card:nth-child(5) { border-top: 8px solid var(--pastel-blue); }
-        .card:nth-child(6) { border-top: 8px solid var(--pastel-purple); }
+        /* 앞면, 뒷면 공통 스타일 */
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* 사파리 호환 */
+            backface-visibility: hidden;
+            border-radius: 30px;
+            background-color: var(--card-bg);
+            padding: 35px 25px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 각 카드별 상단 파스텔 포인트 컬러 (앞면만) */
+        .flip-card:nth-child(1) .flip-card-front { border-top: 8px solid var(--pastel-pink); }
+        .flip-card:nth-child(2) .flip-card-front { border-top: 8px solid var(--pastel-yellow); }
+        .flip-card:nth-child(3) .flip-card-front { border-top: 8px solid var(--pastel-coral); }
+        .flip-card:nth-child(4) .flip-card-front { border-top: 8px solid var(--pastel-mint); }
+        .flip-card:nth-child(5) .flip-card-front { border-top: 8px solid var(--pastel-blue); }
+        .flip-card:nth-child(6) .flip-card-front { border-top: 8px solid var(--pastel-purple); }
 
         .card-icon {
             font-size: 2.5rem;
@@ -218,27 +346,50 @@
         .card-title {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: var(--text-dark);
+            color: var(--text-main);
         }
 
         .card-desc {
             font-size: 1rem;
-            color: #7a6a60;
+            color: inherit;
+            opacity: 0.8;
         }
 
-        /* 4. Outro (CTA/Memory) Section */
+        /* 뒷면 특화 스타일 */
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background-color: var(--card-bg);
+            padding: 0; /* 사진이 가득 차도록 패딩 제거 */
+            border: 4px solid var(--title-color); /* 뒷면 강조 보더 */
+        }
+        
+        .flip-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 26px; /* 부모 보더 두께 고려 */
+        }
+        
+        .flip-card-back .placeholder-text {
+            text-align: center;
+            padding: 20px;
+            color: var(--title-color);
+            font-weight: bold;
+        }
+
         .outro {
             text-align: center;
-            background: linear-gradient(180deg, var(--bg-ivory) 0%, var(--pastel-pink) 100%);
+            background: var(--outro-gradient);
             padding: 120px 20px;
             border-radius: 40px 40px 0 0;
             margin-top: 50px;
+            transition: background 0.5s ease;
         }
 
         .outro h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #d18b74;
+            color: var(--title-color);
         }
 
         .outro p {
@@ -246,7 +397,8 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
-            color: #7a6a60;
+            color: inherit;
+            opacity: 0.8;
         }
 
         .heart-icon {
@@ -258,23 +410,22 @@
         }
 
         @keyframes heartbeat {
-            from { transform: scale(1); transform-origin: center center; animation-timing-function: ease-out; }
-            10% { transform: scale(0.91); animation-timing-function: ease-in; }
-            17% { transform: scale(0.98); animation-timing-function: ease-out; }
-            33% { transform: scale(0.87); animation-timing-function: ease-in; }
-            45% { transform: scale(1); animation-timing-function: ease-out; }
+            from { transform: scale(1); }
+            10% { transform: scale(0.91); }
+            17% { transform: scale(0.98); }
+            33% { transform: scale(0.87); }
+            45% { transform: scale(1); }
         }
 
-        /* 5. Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
             background-color: var(--pastel-pink);
-            color: #b5838d;
+            color: var(--text-main);
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* 반응형 */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero h1 span { font-size: 1.4rem; }
@@ -282,10 +433,24 @@
             section { padding: 60px 20px; }
             .profile { padding: 40px 20px; margin-top: -30px; }
             .outro { padding: 80px 20px; }
+            .flip-card { height: 280px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- 스크롤 진행 바 -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- 다크모드 토글 버튼 -->
+    <button class="theme-switch" id="theme-toggle" aria-label="다크모드 전환">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- 패럴랙스 배경 (발자국) -->
+    <div class="parallax-bg" id="parallax-layer"></div>
 
     <!-- 1. Intro (만남) -->
     <section class="hero">
@@ -298,8 +463,8 @@
         </div>
         
         <div class="hero-image-wrapper float fade-in" style="transition-delay: 0.2s;">
-            <!-- 봄이와 비슷한 귀여운 포메라니안 이미지 (Unsplash Placeholder) -->
-            <img src="C:\Users\SSAFY\Desktop\추예지\image.jpg" alt="업로드된 아이보리빛 포메라니안 봄이">
+            <!-- 사용자가 업로드한 봄이 사진 -->
+            <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\image.jpg" alt="아이보리빛 포메라니안 봄이">
         </div>
 
         <div class="scroll-down">↓</div>
@@ -321,46 +486,97 @@
         </div>
     </section>
 
-    <!-- 3. Gallery / Charms (일상 & 매력 포인트) -->
+    <!-- 3. Gallery / Charms (카드 뒤집기) -->
     <section class="charms">
         <h2 class="section-title fade-in">봄이만의 6가지 매력 포인트</h2>
-        <p class="fade-in" style="color: #7a6a60; margin-bottom: 20px;">우다다 뛰던 날, 수제비 귀를 쫑긋거리며 참견하던 일상의 순간들</p>
+        <p class="fade-in" style="color: inherit; opacity:0.8; margin-bottom: 20px;">
+            우다다 뛰던 날, 수제비 귀를 쫑긋거리며 참견하던 일상의 순간들<br>
+            <small>(카드를 눌러보거나 마우스를 올려보세요!)</small>
+        </p>
         
         <div class="charms-grid">
-            <div class="card fade-in">
-                <div class="card-icon">🥟</div>
-                <h3 class="card-title">수제비 귀</h3>
-                <p class="card-desc">쫑긋할 때마다 심장을 부여잡게 만드는 앙증맞고 귀여운 수제비 모양의 귀 매력.</p>
+            <!-- 카드 1 -->
+            <div class="flip-card fade-in">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🥟</div>
+                        <h3 class="card-title">수제비 귀</h3>
+                        <p class="card-desc">쫑긋할 때마다 심장을 부여잡게 만드는 앙증맞고 귀여운 수제비 모양의 귀 매력.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\수제비.jpg" alt="수제비 귀 봄이">
+                    </div>
+                </div>
             </div>
             
-            <div class="card fade-in">
-                <div class="card-icon">👀</div>
-                <h3 class="card-title">프로 참견러</h3>
-                <p class="card-desc">집안의 모든 일에 나서야 직성이 풀려요! 청소기 돌릴 때도, 밥 먹을 때도 빠질 수 없는 호기심 대장.</p>
+            <!-- 카드 2 -->
+            <div class="flip-card fade-in">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">👀</div>
+                        <h3 class="card-title">프로 참견러</h3>
+                        <p class="card-desc">집안의 모든 일에 나서야 직성이 풀려요! 청소기 돌릴 때도, 빠질 수 없는 호기심 대장.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\참견.jpg" alt="프로 참견러 봄이">
+                    </div>
+                </div>
             </div>
             
-            <div class="card fade-in">
-                <div class="card-icon">💨</div>
-                <h3 class="card-title">우다다 에너자이저</h3>
-                <p class="card-desc">한 번 신나면 주체할 수 없어요. 작은 발로 온 집안을 누비는 우다다 요정의 스피드!</p>
+            <!-- 카드 3 -->
+            <div class="flip-card fade-in">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">💨</div>
+                        <h3 class="card-title">우다다 에너자이저</h3>
+                        <p class="card-desc">한 번 신나면 주체할 수 없어요. 작은 발로 온 집안을 누비는 우다다 요정의 스피드!</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\에너자이저.jpg" alt="에너자이저 봄이">
+                    </div>
+                </div>
             </div>
             
-            <div class="card fade-in">
-                <div class="card-icon">🌻</div>
-                <h3 class="card-title">해바라기 애정</h3>
-                <p class="card-desc">주인만 졸졸 따라다니는 무한 껌딱지. 주인을 향한 넘치는 사랑과 애착은 우주 최고랍니다.</p>
+            <!-- 카드 4 -->
+            <div class="flip-card fade-in">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🌻</div>
+                        <h3 class="card-title">해바라기 애정</h3>
+                        <p class="card-desc">주인만 졸졸 따라다니는 무한 껌딱지. 주인을 향한 넘치는 사랑과 애착은 최고랍니다.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\해바라기.jpg" alt="해바라기 애정 봄이">
+                    </div>
+                </div>
             </div>
             
-            <div class="card fade-in">
-                <div class="card-icon">🚨</div>
-                <h3 class="card-title">든든한 알리미</h3>
-                <p class="card-desc">밖에서 아주 작은 소리라도 나면 바로 왈왈! 우리 집을 지키는 작지만 든든하고 예민한 청각.</p>
+            <!-- 카드 5 -->
+            <div class="flip-card fade-in">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">🚨</div>
+                        <h3 class="card-title">든든한 알리미</h3>
+                        <p class="card-desc">밖에서 아주 작은 소리라도 나면 바로 왈왈! 우리 집을 지키는 든든하고 예민한 청각.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\알리미.JPG" alt="든든한 알리미 봄이">
+                    </div>
+                </div>
             </div>
             
-            <div class="card fade-in">
-                <div class="card-icon">👨‍𹒒</div>
-                <h3 class="card-title">확고한 취향</h3>
-                <p class="card-desc">우는 아기는 NO, 다정한 어른(특히 남자)은 YES! 봄이만의 아주 확실한 호불호가 매력 포인트.</p>
+            <!-- 카드 6 -->
+            <div class="flip-card fade-in">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-icon">👨‍𹒒</div>
+                        <h3 class="card-title">확고한 취향</h3>
+                        <p class="card-desc">아기는 NO, 다정한 어른(특히 남자)은 YES! 봄이만의 아주 확실한 호불호가 매력 포인트.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="C:\Users\SSAFY\Desktop\추예지\봄이사진\취향.jpg" alt="확고한 취향 봄이">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -379,9 +595,75 @@
         <p>Made with Love to remember Bomi. Forever in our hearts.</p>
     </footer>
 
-    <!-- JavaScript for Scroll Animation -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            
+            /* 1. 다크모드 / 라이트모드 토글 로직 */
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const icon = themeToggleBtn.querySelector('i');
+            
+            // 로컬 스토리지에서 이전 테마 불러오기
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateIcon(currentTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                let targetTheme = theme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', targetTheme);
+                localStorage.setItem('theme', targetTheme);
+                updateIcon(targetTheme);
+            });
+
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+
+            /* 2. 스크롤 진행 바 및 3. 패럴랙스 배경 로직 */
+            const progressBar = document.getElementById('progress-bar');
+            const parallaxBg = document.getElementById('parallax-layer');
+            
+            // 패럴랙스를 위한 변수 (requestAnimationFrame 사용)
+            let currentScrollY = 0;
+            let targetScrollY = 0;
+
+            window.addEventListener('scroll', () => {
+                // 스크롤 바 계산
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight;
+                const clientHeight = document.documentElement.clientHeight;
+                
+                const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                progressBar.style.width = scrollPercent + '%';
+                
+                // 패럴랙스 타겟 위치 업데이트
+                targetScrollY = scrollTop;
+            });
+
+            // 스크롤 속도보다 배경이 느리게 따라오게 하는 애니메이션 루프 (보간법 적용)
+            function animateParallax() {
+                // targetScrollY에 도달할 때까지 서서히 currentScrollY 증가 (지연 효과)
+                // 0.05 곱하는 수치가 작을수록 배경이 더 무겁게(느리게) 따라옵니다.
+                currentScrollY += (targetScrollY - currentScrollY) * 0.05; 
+                
+                // 배경 이미지를 위로 움직여 스크롤하는 듯한 효과.
+                // - 기호를 붙여 스크롤 내릴 때 배경이 위로 가도록 하고,
+                // 스크롤 양의 절반(0.5) 정도만 움직여 원근감을 줍니다.
+                parallaxBg.style.transform = `translateY(-${currentScrollY * 0.4}px)`;
+                
+                requestAnimationFrame(animateParallax);
+            }
+            animateParallax();
+
+
+            /* 4. 요소 등장 애니메이션 (Intersection Observer) */
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -391,7 +673,6 @@
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        // 약간의 딜레이를 주어 순차적으로 나타나게 함 (카드의 경우)
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, index * 100);
