@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>우다다 요정 봄이</title>
     
-    <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome (다크모드 아이콘용) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -88,11 +86,10 @@
             top: -50%;
             left: 0;
             width: 100%;
-            height: 200%; /* 스크롤 여유 공간 */
+            height: 200%;
             background-image: var(--paw-pattern);
             background-repeat: repeat;
             z-index: -1;
-            /* JS로 스크롤에 따라 부드럽게(지연되어) 움직일 예정 */
             transition: transform 0.1s linear; 
         }
 
@@ -287,17 +284,15 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 40px;
-            perspective: 1000px; /* 3D 공간 생성 */
-        }
-
-        /* 카드 컨테이너 */
-        .flip-card {
-            background-color: transparent;
-            height: 250px; /* 카드 높이 고정 */
             perspective: 1000px;
         }
 
-        /* 실제 뒤집히는 이너 요소 */
+        .flip-card {
+            background-color: transparent;
+            height: 250px;
+            perspective: 1000px;
+        }
+
         .flip-card-inner {
             position: relative;
             width: 100%;
@@ -314,12 +309,11 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* 앞면, 뒷면 공통 스타일 */
         .flip-card-front, .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden; /* 사파리 호환 */
+            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 30px;
             background-color: var(--card-bg);
@@ -330,7 +324,6 @@
             justify-content: center;
         }
 
-        /* 각 카드별 상단 파스텔 포인트 컬러 (앞면만) */
         .flip-card:nth-child(1) .flip-card-front { border-top: 8px solid var(--pastel-pink); }
         .flip-card:nth-child(2) .flip-card-front { border-top: 8px solid var(--pastel-yellow); }
         .flip-card:nth-child(3) .flip-card-front { border-top: 8px solid var(--pastel-coral); }
@@ -355,33 +348,27 @@
             opacity: 0.8;
         }
 
-        /* 뒷면 특화 스타일 */
         .flip-card-back {
             transform: rotateY(180deg);
             background-color: var(--card-bg);
-            padding: 0; /* 사진이 가득 차도록 패딩 제거 */
-            border: 4px solid var(--title-color); /* 뒷면 강조 보더 */
+            padding: 0;
+            border: 4px solid var(--title-color);
         }
         
         .flip-card-back img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 26px; /* 부모 보더 두께 고려 */
+            border-radius: 26px;
         }
         
-        .flip-card-back .placeholder-text {
-            text-align: center;
-            padding: 20px;
-            color: var(--title-color);
-            font-weight: bold;
-        }
         .outro-wrapper {
-            width: 100%; /* 화면 전체 너비 */
+            width: 100%;
             background: var(--outro-gradient);
             transition: background 0.5s ease;
             margin-top: 50px;
         }
+        
         .outro {
             text-align: center;
             background: var(--outro-gradient);
@@ -430,7 +417,6 @@
             font-size: 0.9rem;
         }
 
-        /* 반응형 */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero h1 span { font-size: 1.4rem; }
@@ -444,20 +430,16 @@
 </head>
 <body>
 
-    <!-- 스크롤 진행 바 -->
     <div id="progress-container">
         <div id="progress-bar"></div>
     </div>
 
-    <!-- 다크모드 토글 버튼 -->
     <button class="theme-switch" id="theme-toggle" aria-label="다크모드 전환">
         <i class="fas fa-moon"></i>
     </button>
     
-    <!-- 패럴랙스 배경 (발자국) -->
     <div class="parallax-bg" id="parallax-layer"></div>
 
-    <!-- 1. Intro (만남) -->
     <section class="hero">
         <div class="fade-in">
             <h1>
@@ -468,14 +450,12 @@
         </div>
         
         <div class="hero-image-wrapper float fade-in" style="transition-delay: 0.2s;">
-            <!-- 사용자가 업로드한 봄이 사진 -->
-            <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\image.jpg" alt="아이보리빛 포메라니안 봄이">
+            <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/image.jpg" alt="아이보리빛 포메라니안 봄이">
         </div>
 
         <div class="scroll-down">↓</div>
     </section>
 
-    <!-- 2. Profile (탐구) -->
     <section class="profile fade-in">
         <h2 class="section-title">봄이의 이모저모 탐구 시간</h2>
         <div class="profile-content">
@@ -491,7 +471,6 @@
         </div>
     </section>
 
-    <!-- 3. Gallery / Charms (카드 뒤집기) -->
     <section class="charms">
         <h2 class="section-title fade-in">봄이만의 6가지 매력 포인트</h2>
         <p class="fade-in" style="color: inherit; opacity:0.8; margin-bottom: 20px;">
@@ -500,7 +479,6 @@
         </p>
         
         <div class="charms-grid">
-            <!-- 카드 1 -->
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -509,12 +487,11 @@
                         <p class="card-desc">쫑긋할 때마다 심장을 부여잡게 만드는 앙증맞고 귀여운 수제비 모양의 귀 매력.</p>
                     </div>
                     <div class="flip-card-back">
-                        <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\수제비.jpg" alt="수제비 귀 봄이">
+                        <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/수제비.jpg" alt="수제비 귀 봄이">
                     </div>
                 </div>
             </div>
             
-            <!-- 카드 2 -->
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -523,12 +500,11 @@
                         <p class="card-desc">집안의 모든 일에 나서야 직성이 풀려요! 청소기 돌릴 때도, 빠질 수 없는 호기심 대장.</p>
                     </div>
                     <div class="flip-card-back">
-                        <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\참견.jpg" alt="프로 참견러 봄이">
+                        <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/참견.jpg" alt="프로 참견러 봄이">
                     </div>
                 </div>
             </div>
             
-            <!-- 카드 3 -->
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -537,12 +513,11 @@
                         <p class="card-desc">한 번 신나면 주체할 수 없어요. 작은 발로 온 집안을 누비는 우다다 요정의 스피드!</p>
                     </div>
                     <div class="flip-card-back">
-                        <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\에너자이저.jpg" alt="에너자이저 봄이">
+                        <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/에너자이저.jpg" alt="에너자이저 봄이">
                     </div>
                 </div>
             </div>
             
-            <!-- 카드 4 -->
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -551,12 +526,11 @@
                         <p class="card-desc">주인만 졸졸 따라다니는 무한 껌딱지. 주인을 향한 넘치는 사랑과 애착은 최고랍니다.</p>
                     </div>
                     <div class="flip-card-back">
-                        <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\해바라기.jpg" alt="해바라기 애정 봄이">
+                        <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/해바라기.jpg" alt="해바라기 애정 봄이">
                     </div>
                 </div>
             </div>
             
-            <!-- 카드 5 -->
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -565,28 +539,26 @@
                         <p class="card-desc">밖에서 아주 작은 소리라도 나면 바로 왈왈! 우리 집을 지키는 든든하고 예민한 청각.</p>
                     </div>
                     <div class="flip-card-back">
-                        <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\알리미.JPG" alt="든든한 알리미 봄이">
+                        <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/알리미.JPG" alt="든든한 알리미 봄이">
                     </div>
                 </div>
             </div>
             
-            <!-- 카드 6 -->
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <div class="card-icon">👨‍</div>
+                        <div class="card-icon">👨</div>
                         <h3 class="card-title">확고한 취향</h3>
                         <p class="card-desc">아기는 NO, 다정한 어른(특히 남자)은 YES! 봄이만의 아주 확실한 호불호가 매력 포인트.</p>
                     </div>
                     <div class="flip-card-back">
-                        <img src="C:\Users\SSAFY\Desktop\추예지\IAM\봄이사진\취향.jpg" alt="확고한 취향 봄이">
+                        <img src="C:/Users/SSAFY/Desktop/추예지/IAM/봄이사진/취향.jpg" alt="확고한 취향 봄이">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Outro (기억) -->
     <div class="outro-wrapper fade-in">
         <section class="outro">
             <h2>영원히 마음속에 피어날 우리들의 '봄'</h2>
@@ -597,7 +569,6 @@
         </section>
     </div>
 
-    <!-- 5. Footer -->
     <footer>
         <p>Made with Love to remember Bomi. Forever in our hearts.</p>
     </footer>
@@ -609,7 +580,6 @@
             const themeToggleBtn = document.getElementById('theme-toggle');
             const icon = themeToggleBtn.querySelector('i');
             
-            // 로컬 스토리지에서 이전 테마 불러오기
             const currentTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', currentTheme);
             updateIcon(currentTheme);
@@ -637,12 +607,10 @@
             const progressBar = document.getElementById('progress-bar');
             const parallaxBg = document.getElementById('parallax-layer');
             
-            // 패럴랙스를 위한 변수 (requestAnimationFrame 사용)
             let currentScrollY = 0;
             let targetScrollY = 0;
 
             window.addEventListener('scroll', () => {
-                // 스크롤 바 계산
                 const scrollTop = document.documentElement.scrollTop;
                 const scrollHeight = document.documentElement.scrollHeight;
                 const clientHeight = document.documentElement.clientHeight;
@@ -650,25 +618,15 @@
                 const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
                 progressBar.style.width = scrollPercent + '%';
                 
-                // 패럴랙스 타겟 위치 업데이트
                 targetScrollY = scrollTop;
             });
 
-            // 스크롤 속도보다 배경이 느리게 따라오게 하는 애니메이션 루프 (보간법 적용)
             function animateParallax() {
-                // targetScrollY에 도달할 때까지 서서히 currentScrollY 증가 (지연 효과)
-                // 0.05 곱하는 수치가 작을수록 배경이 더 무겁게(느리게) 따라옵니다.
                 currentScrollY += (targetScrollY - currentScrollY) * 0.05; 
-                
-                // 배경 이미지를 위로 움직여 스크롤하는 듯한 효과.
-                // - 기호를 붙여 스크롤 내릴 때 배경이 위로 가도록 하고,
-                // 스크롤 양의 절반(0.5) 정도만 움직여 원근감을 줍니다.
                 parallaxBg.style.transform = `translateY(-${currentScrollY * 0.4}px)`;
-                
                 requestAnimationFrame(animateParallax);
             }
             animateParallax();
-
 
             /* 4. 요소 등장 애니메이션 (Intersection Observer) */
             const observerOptions = {
