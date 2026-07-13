@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우다다 요정 봄이</title>
+    
+    <!-- 구글 폰트: 둥글고 귀여운 'Jua' (타이틀용)와 감성적이고 코지한 'Gowun Dodum' (본문용) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables - Color Palette */
+        :root {
+            --bg-ivory: #FCFBF7; /* 메인 컬러: 따뜻한 아이보리 */
+            --text-dark: #5C4D43; /* 텍스트 컬러: 부드러운 브라운/그레이 */
+            --pastel-pink: #FFEAEA; /* 파스텔 핑크 */
+            --pastel-coral: #FFE4D6; /* 파스텔 코랄 */
+            --pastel-yellow: #FFF7D1; /* 파스텔 레몬 옐로우 */
+            --pastel-mint: #E4F9F5; /* 파스텔 민트 */
+            --pastel-blue: #E8F1F5; /* 파스텔 블루 */
+            --pastel-purple: #F3E8FF; /* 파스텔 퍼플 */
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Gowun Dodum', sans-serif;
+            background-color: var(--bg-ivory);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Jua', sans-serif;
+            font-weight: normal;
+        }
+
+        /* Layout & Structure */
+        section {
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .float {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 1. Hero Section (Intro) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #d18b74;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #7a6a60;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-image-wrapper {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 8px solid white;
+            margin: 0 auto;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            font-size: 2rem;
+            color: var(--text-dark);
+            opacity: 0.5;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        /* 2. Profile Section */
+        .profile {
+            background-color: white;
+            border-radius: 40px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            margin-top: -50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #d18b74;
+            text-align: center;
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background-color: var(--pastel-yellow);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.1rem;
+            color: #b38812;
+        }
+
+        /* 3. Strengths (Charm Points) Section */
+        .charms {
+            text-align: center;
+        }
+
+        .charms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 35px 25px;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+        }
+
+        /* 각 카드별 파스텔 포인트 컬러 */
+        .card:nth-child(1) { border-top: 8px solid var(--pastel-pink); }
+        .card:nth-child(2) { border-top: 8px solid var(--pastel-yellow); }
+        .card:nth-child(3) { border-top: 8px solid var(--pastel-coral); }
+        .card:nth-child(4) { border-top: 8px solid var(--pastel-mint); }
+        .card:nth-child(5) { border-top: 8px solid var(--pastel-blue); }
+        .card:nth-child(6) { border-top: 8px solid var(--pastel-purple); }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: #7a6a60;
+        }
+
+        /* 4. Outro (CTA/Memory) Section */
+        .outro {
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-ivory) 0%, var(--pastel-pink) 100%);
+            padding: 120px 20px;
+            border-radius: 40px 40px 0 0;
+            margin-top: 50px;
+        }
+
+        .outro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #d18b74;
+        }
+
+        .outro p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #7a6a60;
+        }
+
+        .heart-icon {
+            font-size: 3rem;
+            color: #ff8fa3;
+            margin-top: 30px;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+
+        @keyframes heartbeat {
+            from { transform: scale(1); transform-origin: center center; animation-timing-function: ease-out; }
+            10% { transform: scale(0.91); animation-timing-function: ease-in; }
+            17% { transform: scale(0.98); animation-timing-function: ease-out; }
+            33% { transform: scale(0.87); animation-timing-function: ease-in; }
+            45% { transform: scale(1); animation-timing-function: ease-out; }
+        }
+
+        /* 5. Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--pastel-pink);
+            color: #b5838d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero h1 span { font-size: 1.4rem; }
+            .section-title { font-size: 1.8rem; }
+            section { padding: 60px 20px; }
+            .profile { padding: 40px 20px; margin-top: -30px; }
+            .outro { padding: 80px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Intro (만남) -->
+    <section class="hero">
+        <div class="fade-in">
+            <h1>
+                <span>사사건건 참견쟁이,</span>
+                아이보리빛 우다다 요정 봄이
+            </h1>
+            <p>22년 7월, 아이보리빛 털을 흩날리며 찾아온 봄이와의 첫 만남.<br>우리의 영원한 봄, 봄이의 이야기를 시작합니다.</p>
+        </div>
+        
+        <div class="hero-image-wrapper float fade-in" style="transition-delay: 0.2s;">
+            <!-- 봄이와 비슷한 귀여운 포메라니안 이미지 (Unsplash Placeholder) -->
+            <img src="image_0.png" alt="업로드된 아이보리빛 포메라니안 봄이">
+        </div>
+
+        <div class="scroll-down">↓</div>
+    </section>
+
+    <!-- 2. Profile (탐구) -->
+    <section class="profile fade-in">
+        <h2 class="section-title">봄이의 이모저모 탐구 시간</h2>
+        <div class="profile-content">
+            <p>2022년 7월에 태어난 예쁜 여자아이, 포메라니안 봄이.</p>
+            <p>톡톡 튀는 성격만큼이나 호불호도 아주 확실하답니다.<br>아기는 조금 부담스러워하지만, 듬직한 어른(특히 남자!)은 정말 좋아해요.</p>
+            
+            <div class="badge-container">
+                <span class="badge">#포메라니안</span>
+                <span class="badge">#22년_7월생</span>
+                <span class="badge">#여자아이</span>
+                <span class="badge">#MBTI_ENFP예상</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Gallery / Charms (일상 & 매력 포인트) -->
+    <section class="charms">
+        <h2 class="section-title fade-in">봄이만의 6가지 매력 포인트</h2>
+        <p class="fade-in" style="color: #7a6a60; margin-bottom: 20px;">우다다 뛰던 날, 수제비 귀를 쫑긋거리며 참견하던 일상의 순간들</p>
+        
+        <div class="charms-grid">
+            <div class="card fade-in">
+                <div class="card-icon">🥟</div>
+                <h3 class="card-title">수제비 귀</h3>
+                <p class="card-desc">쫑긋할 때마다 심장을 부여잡게 만드는 앙증맞고 귀여운 수제비 모양의 귀 매력.</p>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-icon">👀</div>
+                <h3 class="card-title">프로 참견러</h3>
+                <p class="card-desc">집안의 모든 일에 나서야 직성이 풀려요! 청소기 돌릴 때도, 밥 먹을 때도 빠질 수 없는 호기심 대장.</p>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-icon">💨</div>
+                <h3 class="card-title">우다다 에너자이저</h3>
+                <p class="card-desc">한 번 신나면 주체할 수 없어요. 작은 발로 온 집안을 누비는 우다다 요정의 스피드!</p>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-icon">🌻</div>
+                <h3 class="card-title">해바라기 애정</h3>
+                <p class="card-desc">주인만 졸졸 따라다니는 무한 껌딱지. 주인을 향한 넘치는 사랑과 애착은 우주 최고랍니다.</p>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-icon">🚨</div>
+                <h3 class="card-title">든든한 알리미</h3>
+                <p class="card-desc">밖에서 아주 작은 소리라도 나면 바로 왈왈! 우리 집을 지키는 작지만 든든하고 예민한 청각.</p>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-icon">👨‍𹒒</div>
+                <h3 class="card-title">확고한 취향</h3>
+                <p class="card-desc">우는 아기는 NO, 다정한 어른(특히 남자)은 YES! 봄이만의 아주 확실한 호불호가 매력 포인트.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Outro (기억) -->
+    <section class="outro fade-in">
+        <h2>영원히 마음속에 피어날 우리들의 '봄'</h2>
+        <p>봄이를 다시 원래 태어난 집으로 보내게 되어 지금은 곁에 없지만,<br>
+           우다다 뛰어오며 반겨주던 너의 맑은 눈빛과 아이보리빛 포근함은 영원히 잊지 않을게.<br><br>
+           떨어져 있어도 넌 언제나 우리 마음속의 따뜻한 '봄'으로 남아있을 거야.</p>
+        <div class="heart-icon">💖</div>
+    </section>
+
+    <!-- 5. Footer -->
+    <footer>
+        <p>Made with Love to remember Bomi. Forever in our hearts.</p>
+    </footer>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // 약간의 딜레이를 주어 순차적으로 나타나게 함 (카드의 경우)
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
