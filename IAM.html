@@ -46,7 +46,7 @@
             --text-main: #EAE0D5; 
             --title-color: #E2B49A;
             --card-bg: #38302A;
-            --badge-text: #5C4D43;
+            --badge-text: #EAE0D5;
             --outro-gradient: linear-gradient(180deg, #2A2420 0%, #4A3A35 100%);
             
             /* 파스텔 포인트를 다크모드에 맞게 약간 톤다운 */
@@ -376,7 +376,12 @@
             color: var(--title-color);
             font-weight: bold;
         }
-
+        .outro-wrapper {
+            width: 100%; /* 화면 전체 너비 */
+            background: var(--outro-gradient);
+            transition: background 0.5s ease;
+            margin-top: 50px;
+        }
         .outro {
             text-align: center;
             background: var(--outro-gradient);
@@ -569,7 +574,7 @@
             <div class="flip-card fade-in">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <div class="card-icon">👨‍𹒒</div>
+                        <div class="card-icon">👨‍</div>
                         <h3 class="card-title">확고한 취향</h3>
                         <p class="card-desc">아기는 NO, 다정한 어른(특히 남자)은 YES! 봄이만의 아주 확실한 호불호가 매력 포인트.</p>
                     </div>
@@ -582,13 +587,15 @@
     </section>
 
     <!-- 4. Outro (기억) -->
-    <section class="outro fade-in">
-        <h2>영원히 마음속에 피어날 우리들의 '봄'</h2>
-        <p>봄이를 다시 원래 태어난 집으로 보내게 되어 지금은 곁에 없지만,<br>
-           우다다 뛰어오며 반겨주던 너의 맑은 눈빛과 아이보리빛 포근함은 영원히 잊지 않을게.<br><br>
-           떨어져 있어도 넌 언제나 우리 마음속의 따뜻한 '봄'으로 남아있을 거야.</p>
-        <div class="heart-icon">💖</div>
-    </section>
+    <div class="outro-wrapper fade-in">
+        <section class="outro">
+            <h2>영원히 마음속에 피어날 우리들의 '봄'</h2>
+            <p>봄이를 다시 원래 태어난 집으로 보내게 되어 지금은 곁에 없지만,<br>
+               우다다 뛰어오며 반겨주던 너의 맑은 눈빛과 아이보리빛 포근함은 영원히 잊지 않을게.<br><br>
+               떨어져 있어도 넌 언제나 우리 마음속의 따뜻한 '봄'으로 남아있을 거야.</p>
+            <div class="heart-icon">💖</div>
+        </section>
+    </div>
 
     <!-- 5. Footer -->
     <footer>
